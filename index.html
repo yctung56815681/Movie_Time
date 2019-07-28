@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Time</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <style>
+        .container {
+            position: relative;
+
+            width: 100%;
+            max-width: 450px;
+
+            /* width: 600px; */
+
+            margin: 50px auto;
+            /* background-color:dodgerblue; */
+            /* background-color: cornflowerblue; */
+            /* background-color: royalblue; */
+            background-color: steelblue;
+
+            /* background-color: midnightblue; */
+            /* background-color:skyblue; */
+            /* background-color:lightskyblue; */
+            /* background-color: deepskyblue; */
+            /* background-color: darkslateblue; */
+
+            border-radius: 15px;
+        }
+
+        .all {
+            /* width: 80%; */
+            /* height: auto; */
+
+            /* position: absolute;
+            top: 10%;
+            left: 10%; */
+
+            /* width: 450px;
+            height: 450px;
+
+            margin: 50px auto; */
+
+            /* margin: 50px; */
+
+            /* margin: 50px 150px 250px 150px; */
+
+            /* margin : auto; */
+
+            /* margin: 0 auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; */
+
+            border-radius: 15px;
+            /* background-color: green; */
+        }
+
+        .tittle {
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .movie {
+            padding: 10px;
+            box-sizing: border-box;
+            /* width: 350px;
+            height: 350px; */
+
+            /* margin : 0 auto; */
+
+            /* margin: 0 auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0; */
+
+            border-radius: 15px;
+            /* background-color: red; */
+        }
+
+        /* .form-control {
+            width: 80%;
+        } */
+
+        .footer {
+            text-align: center;
+        }
+
+
+
+
+
+        .input-container {
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            padding: 10px;
+            background-color: cornflowerblue;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .form-control {
+            width: 100%;
+            /* padding: 10px; */
+            outline: none;
+        }
+
+        .input-field {
+            width: 100%;
+            /* padding: 6px; */
+            outline: none;
+        }
+
+        .form-controld:focus {
+            border: 2px solid dodgerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 全省威秀影城隔週電影新場次公布於每週二晚間23:59 -->
+    <!-- (假設週二整天只能查到：週二) -->
+    <!-- 會開放未來一週(週三會查到：今天到下星期二)之場次 -->
+    <div class="container">
+        <div class="all">
+            <h4 class="tittle">影城訂位系統</h4>
+            <div class="movie">
+                <form action="">
+                    <div class="header">
+                        <!-- should be implemented by tab     -->
+                        <button class="btn btn-primary">快速訂票</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-primary">快速搜位</button>
+                    </div>
+                    <br>
+
+                    <!-- <div>
+                        <span style="display: flex">
+                            <i class="fas fa-map-marker-alt icon"></i>
+                            <select class="form-control" name="lcationNameList" id="locationName"
+                                onchange="locationChangeFun()">
+                                <option value="0">請選則影城</option>
+                            </select>
+                        </span>
+                    </div>
+                    <br><br> -->
+
+                    <div class="input-container">
+                        <i class="fas fa-map-marker-alt icon"></i>
+                        <select class="form-control" name="lcationNameList" id="locationName"
+                            onchange="locationChangeFun()">
+                            <option value="0"></span>請選則影城</option>
+                        </select>
+                    </div>
+
+                    <div class="input-container">
+                        <i class='fas fa-video icon'></i>
+                        <select class="form-control" name="movieNameList" id="movieName" onchange="movieChangeFun()">
+                            <option value="0">請選則影片</option>
+                        </select>
+                    </div>
+
+                    <div class="input-container">
+                        <i class="far fa-calendar-alt icon"></i>
+                        <select class="form-control" name="movieDayList" id="movieDay" onchange="dayChangeFun()">
+                            <option value="0">請選則日期</option>
+                        </select>
+                    </div>
+
+                    <!-- <div class="input-container">
+                        <i class="far fa-clock icon"></i>
+                        <select class="form-control" name="movieTimeList" id="movieTime">
+                            <option value="0">請選則場次</option>
+                        </select>
+                    </div> -->
+
+                    <div class="footer">
+                        <!-- <a href="https://www.vscinemas.com.tw/vsweb/" target="_blank">前往訂票</a>
+                            <a href="http://www.ccmovie.com.tw/" target="_blank">查看座位</a> -->
+                        <button class="btn btn-primary">前往訂票</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-primary">查看座位</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var i, j, k;
+        var list = {
+            "vieshow": [{
+                "location": "台北影城",
+                "movie": [{
+                        "name": "(PRE)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(LIVE)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(數位)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    },
+                    {
+                        "name": "(3D數位)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(IMAX)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(IMAX 3D)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    },
+                    {
+                        "name": "(4DX)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(4DX 3D)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    }
+                ]
+            }, {
+                "location": "新北影城",
+                "movie": [{
+                        "name": "(PRE)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(LIVE)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(數位)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    },
+                    {
+                        "name": "(3D數位)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(IMAX)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(IMAX 3D)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    },
+                    {
+                        "name": "(4DX)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    }
+                ]
+            }, {
+                "location": "基隆影城",
+                "movie": [{
+                        "name": "(PRE)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(LIVE)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(數位)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    },
+                    {
+                        "name": "(3D數位)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(IMAX)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(IMAX 3D)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    }
+
+                ]
+            }, {
+                "location": "桃園影城",
+                "movie": [{
+                        "name": "(PRE)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(LIVE)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(數位)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    },
+                    {
+                        "name": "(3D數位)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(IMAX)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    }
+
+                ]
+            }, {
+                "location": "新竹影城",
+                "movie": [{
+                        "name": "(PRE)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(LIVE)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(數位)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    },
+                    {
+                        "name": "(3D數位)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    }
+
+                ]
+            }, {
+                "location": "苗栗影城",
+                "movie": [{
+                        "name": "(PRE)",
+                        "time": ["00:10", "10:10", "12:10", "14:10", "16:10", "18:10", "20:10", "22:10"]
+                    },
+                    {
+                        "name": "(LIVE)",
+                        "time": ["00:10", "13:10", "16:10", "19:10", "22:10", "01:10"]
+                    },
+                    {
+                        "name": "(數位)",
+                        "time": ["00:10", "14:10", "18:10", "22:10", "02:10"]
+                    }
+                ]
+            }]
+        };
+
+        for (i = 0; i < list.vieshow.length; i++) {
+            var locationArray = document.getElementById("locationName");
+            var option = document.createElement("option");
+            console.log(i);
+            console.log(list.vieshow[i].location);
+
+            option.text = list.vieshow[i].location;
+            option.value = i + 1;
+            console.log(option.text);
+            console.log(option.value);
+            console.log("===");
+            locationArray.add(option);
+        }
+
+        function locationChangeFun() {
+            var locationVal = document.getElementById("locationName").value;
+            var movieVal = document.getElementById("movieName").value;
+            var dayVal = document.getElementById("movieDay").value;
+            // var timeVal = document.getElementById("movieTime").value;
+            var locationArray = document.getElementById("locationName");
+            var movieArray = document.getElementById("movieName");
+            var dayArray = document.getElementById("movieDay");
+            // var timeArray = document.getElementById("movieTime");
+            var len;
+            var i, j;
+            console.log(locationVal);
+            console.log(movieArray.length);
+            console.log("===");
+
+            len = movieArray.length;
+            for (i = 0; i < len - 1; i++) {
+                console.log(i);
+                console.log(movieArray.length - 1);
+                movieArray.remove(movieArray.length - 1);
+            }
+            len = dayArray.length;
+            for (i = 0; i < len - 1; i++) {
+                console.log(i);
+                console.log(dayArray.length - 1);
+                dayArray.remove(dayArray.length - 1);
+            }
+            // len = timeArray.length;
+            // for (i = 0; i < len - 1; i++) {
+            //     console.log(i);
+            //     console.log(timeArray.length - 1);
+            //     timeArray.remove(timeArray.length - 1);
+            // }
+            console.log("---");
+            for (i = 0; i < list.vieshow[locationVal - 1].movie.length; i++) {
+                console.log(i);
+                console.log(list.vieshow[locationVal - 1].movie[i]);
+
+                var option = document.createElement("option");
+                option.text = list.vieshow[locationVal - 1].movie[i].name;
+                option.value = i + 1;
+                movieArray.add(option);
+            }
+            console.log("///");
+        }
+
+        function movieChangeFun() {
+            var locationVal = document.getElementById("locationName").value;
+            var movieVal = document.getElementById("movieName").value;
+            var dayVal = document.getElementById("movieDay").value;
+            // var timeVal = document.getElementById("movieTime").value;
+            var locationArray = document.getElementById("locationName");
+            var movieArray = document.getElementById("movieName");
+            var dayArray = document.getElementById("movieDay");
+            // var timeArray = document.getElementById("movieTime");
+            var len;
+            var i, j;
+            console.log(movieVal);
+            console.log(dayArray.length);
+            console.log("===");
+
+            len = dayArray.length;
+            for (i = 0; i < len - 1; i++) {
+                console.log(i);
+                console.log(dayArray.length - 1);
+                dayArray.remove(dayArray.length - 1);
+            }
+            // len = timeArray.length;
+            // for (i = 0; i < len - 1; i++) {
+            //     console.log(i);
+            //     console.log(timeArray.length - 1);
+            //     timeArray.remove(timeArray.length - 1);
+            // }
+            var dayName = ['日', '一', '二', '三', '四', '五', '六', '日'];
+            var d = new Date();
+            // var d = new Date("2019/7/28");
+            // var d = new Date("2019/7/29");
+            // var d = new Date("2019/7/30");
+            // var d = new Date("2019/7/31");
+            // var d = new Date("2019/8/1");
+            // var d = new Date("2019/8/2");
+            // var d = new Date("2019/8/3");
+            // var d = new Date("2019/8/4");
+            var year, month, date;
+            year = d.getFullYear();
+            month = d.getMonth();
+            day = d.getDay();
+            console.log(d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate() + '(' + dayName[d.getDay()] +
+                ')');
+            if (day <= 2)
+                len = 3 - day;
+            else
+                len = 10 - day;
+            console.log(len);
+            console.log("---");
+            var time = d.getTime();
+            var time2 = time;
+            for (i = 0; i < len; i++) {
+                var year2, month2, date2;
+                d.setTime(time);
+                year2 = d.getFullYear();
+                month2 = d.getMonth();
+                day2 = d.getDay();
+                var option = document.createElement("option");
+                // if (time == time2)
+                if (year2 == year && month2 == month && day2 == day)
+                    option.text = '今天';
+                else
+                    option.text = d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate() + '(' + dayName[d
+                        .getDay()] + ')';
+                option.value = i + 1;
+                console.log(option.text);
+                console.log(option.value);
+                dayArray.add(option);
+                time += 86400000;
+            }
+            console.log("///");
+        }
+
+        function dayChangeFun() {
+            // var locationVal = document.getElementById("locationName").value;
+            // var movieVal = document.getElementById("movieName").value;
+            // var dayVal = document.getElementById("movieDay").value;
+            // var timeVal = document.getElementById("movieTime").value;
+            // var locationArray = document.getElementById("locationName");
+            // var movieArray = document.getElementById("movieName");
+            // var dayArray = document.getElementById("movieDay");
+            // var timeArray = document.getElementById("movieTime");
+            // var len;
+            // var i, j;
+            // console.log(dayVal);
+            // console.log(timeArray.length);
+            // console.log("===");
+
+            // len = timeArray.length;
+            // for (i = 0; i < len - 1; i++) {
+            //     console.log(i);
+            //     console.log(timeArray.length - 1);
+            //     timeArray.remove(timeArray.length - 1);
+            // }
+            // console.log("---");
+            // for (i = 0; i < list.vieshow[locationVal - 1].movie[movieVal - 1].time.length; i++) {
+            //     console.log(i);
+            //     console.log(list.vieshow[locationVal - 1].movie[movieVal - 1].time[i]);
+
+            //     var option = document.createElement("option");
+            //     option.text = list.vieshow[locationVal - 1].movie[movieVal - 1].time[i];
+            //     option.value = i + 1;
+            //     timeArray.add(option);
+            // }
+            // console.log("///");
+        }
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
